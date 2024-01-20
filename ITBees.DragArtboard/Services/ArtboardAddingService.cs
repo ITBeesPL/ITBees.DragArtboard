@@ -1,11 +1,12 @@
 ﻿using ITBees.DragArtboard.Interfaces;
+using ITBees.DragArtboard.Interfaces.Models;
 using ITBees.DragArtboard.Models;
 using ITBees.Interfaces.Repository;
 using ITBees.Models.Users;
 
 namespace ITBees.DragArtboard.Services;
 
-public class ArtboardAddingService
+public class ArtboardAddingService : IArtboardAddingService
 {
     private readonly IDragArtboardUserManager _dragArtboardUserManager;
     private readonly IWriteOnlyRepository<Artboard> _artboardWoRepository;

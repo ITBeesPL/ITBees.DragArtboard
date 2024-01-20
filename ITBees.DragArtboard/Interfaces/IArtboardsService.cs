@@ -1,4 +1,6 @@
-﻿namespace ITBees.DragArtboard.Interfaces;
+﻿using ITBees.DragArtboard.Interfaces.Models;
+
+namespace ITBees.DragArtboard.Interfaces;
 
 public interface IArtboardsService
 {

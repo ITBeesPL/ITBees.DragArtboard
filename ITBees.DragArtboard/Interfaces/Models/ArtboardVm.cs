@@ -1,7 +1,7 @@
 ﻿using ITBees.DragArtboard.Models;
 using ITBees.Models.Users;
 
-namespace ITBees.DragArtboard.Interfaces;
+namespace ITBees.DragArtboard.Interfaces.Models;
 
 public class ArtboardVm
 {

@@ -1,4 +1,5 @@
 ﻿using ITBees.DragArtboard.Interfaces;
+using ITBees.DragArtboard.Interfaces.Models;
 using ITBees.DragArtboard.Models;
 using ITBees.Interfaces.Repository;
 using ITBees.Models.Users;

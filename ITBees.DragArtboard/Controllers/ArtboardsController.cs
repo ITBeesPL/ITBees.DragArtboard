@@ -1,4 +1,5 @@
 ﻿using ITBees.DragArtboard.Interfaces;
+using ITBees.DragArtboard.Interfaces.Models;
 using ITBees.RestfulApiControllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
