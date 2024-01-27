@@ -5,7 +5,7 @@ namespace ITBees.DragArtboard.Services;
 
 public class DbModelBuilder
 {
-    internal static void Register(ModelBuilder modelBuilder)
+    public static void Register(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Artboard>().HasKey(x => x.Guid);
         modelBuilder.Entity<ArtboardToolboxElement>().HasKey(x => x.Guid);
