@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="ITBees.RestfulApiControllers" Version="8.0.21" />
-    <PackageReference Include="ITBees.Translations" Version="8.0.60" />
+    <PackageReference Include="ITBees.Translations" Version="8.0.61" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.10" />
   </ItemGroup>
 
