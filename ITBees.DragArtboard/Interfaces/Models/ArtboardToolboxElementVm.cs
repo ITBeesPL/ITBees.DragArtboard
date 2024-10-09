@@ -5,6 +5,10 @@ namespace ITBees.DragArtboard.Interfaces.Models;
 
 public class ArtboardToolboxElementVm
 {
+    public ArtboardToolboxElementVm()
+    {
+        
+    }
     public ArtboardToolboxElementVm(ArtboardToolboxElement x, CurrentUser currentUser= null)
     {
         if (x.CreatedBy == null)
