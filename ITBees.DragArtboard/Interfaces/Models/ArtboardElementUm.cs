@@ -6,7 +6,7 @@ public class ArtboardElementUm
 {
     public Guid Guid { get; set; }
     public ArtboardToolboxElementUm ArtboardToolboxElement { get; set; }
-    public Artboard Artboard { get; set; }
+    public ArtboardUm Artboard { get; set; }
     public Guid ArtboardGuid { get; set; }
     public Guid ArtboardToolboxElementGuid { get; set; }
     public string CustomSerializedObject { get; set; }
