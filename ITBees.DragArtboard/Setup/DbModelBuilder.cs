@@ -1,7 +1,7 @@
 ﻿using ITBees.DragArtboard.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace ITBees.DragArtboard.Services;
+namespace ITBees.DragArtboard.Setup;
 
 public class DbModelBuilder
 {
