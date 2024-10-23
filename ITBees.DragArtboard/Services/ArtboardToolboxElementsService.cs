@@ -15,9 +15,15 @@ class ArtboardToolboxElementsService : IArtboardToolboxElementsService
         _roRepo = roRepo;
         _artboardUserManager = artboardUserManager;
     }
-    public ArtboardToolboxElementVm Get(Guid guid)
+    public List<ArtboardToolboxElementVm> Get(Guid? guid)
     {
         //todo security
-        return new ArtboardToolboxElementVm(_roRepo.GetData(x=>x.Guid == guid).FirstOrDefault());
+        if (guid == null || guid == new Guid("00000000-0000-0000-0000-000000000000"))
+        {
+            var elements = _roRepo.GetData(x => true, x=>x.CreatedBy).ToList();
+            return elements.Select(x=>new ArtboardToolboxElementVm(x)).ToList();
+        }
+        var elements2 = _roRepo.GetData(x => x.Guid == guid, x => x.CreatedBy).ToList();
+        return elements2.Select(x => new ArtboardToolboxElementVm(x)).ToList();
     }
 }

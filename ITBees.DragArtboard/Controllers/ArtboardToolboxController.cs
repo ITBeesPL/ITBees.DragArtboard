@@ -29,15 +29,7 @@ public class ArtboardToolboxController : RestfulControllerBase<ArtboardToolboxCo
     [Produces(typeof(ArtboardToolboxElementVm))]
     public IActionResult Get(Guid guid)
     {
-        try
-        {
-            ArtboardToolboxElementVm result = _artboardElementsToolboxService.Get(guid);
-            return Ok(result);
-        }
-        catch (Exception e)
-        {
-            return CreateBaseErrorResponse(e.Message, guid);
-        }
+        return ReturnOkResult(() => _artboardElementsToolboxService.Get(guid));
     }
 
     [HttpPost]
