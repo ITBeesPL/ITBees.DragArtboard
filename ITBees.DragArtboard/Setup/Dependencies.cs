@@ -27,6 +27,7 @@ public class Dependencies : IFasDependencyRegistration
         services.AddScoped<IArtboardToolboxElementDeleteService, ArtboardToolboxElementDeleteService>();
         services.AddScoped<IArtboardToolboxElementsService, ArtboardToolboxElementsService>();
         services.AddScoped<IArtboardUpdatingService, ArtboardUpdatingService>();
+        services.AddScoped<IArtbaordToolboxElementUpdateService, ArtbaordToolboxElementUpdateService>();
 
     }
 }
