@@ -20,6 +20,7 @@ public class ArtboardToolboxElementVm
             this.DisplayName = x.DisplayName;
         }
 
+        this.Guid = x.Guid;
         this.IsActive = x.IsActive;
         this.CustomCss = x.CustomCss;
         this.CustomHtml = x.CustomHtml;
