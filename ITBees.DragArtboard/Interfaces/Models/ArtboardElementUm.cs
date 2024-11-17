@@ -5,10 +5,6 @@ namespace ITBees.DragArtboard.Interfaces.Models;
 public class ArtboardElementUm
 {
     public Guid Guid { get; set; }
-    public ArtboardToolboxElementUm ArtboardToolboxElement { get; set; }
-    public ArtboardUm Artboard { get; set; }
-    public Guid ArtboardGuid { get; set; }
-    public Guid ArtboardToolboxElementGuid { get; set; }
     public string CustomSerializedObject { get; set; }
     public int LocationX { get; set; }
     public int LocationY { get; set; }
@@ -16,5 +12,4 @@ public class ArtboardElementUm
     public int ZIndex { get; set; }
     public int Width { get; set; }
     public int Height { get; set; }
-    public string ElementPropertiesHash { get; set; }
 }

@@ -1,11 +1,7 @@
-﻿using ITBees.DragArtboard.Models;
-
-namespace ITBees.DragArtboard.Interfaces.Models;
+﻿namespace ITBees.DragArtboard.Interfaces.Models;
 
 public class ArtboardElementIm
 {
-    public ArtboardToolboxElementIm ArtboardToolboxElement { get; set; }
-    public ArtboardIm Artboard { get; set; }
     public Guid ArtboardGuid { get; set; }
     public Guid ArtboardToolboxElementGuid { get; set; }
     public string CustomSerializedObject { get; set; }

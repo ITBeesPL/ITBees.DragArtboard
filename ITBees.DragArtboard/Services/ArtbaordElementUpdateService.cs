@@ -23,10 +23,8 @@ class ArtbaordElementUpdateService : IArtbaordElementUpdateService
         var result = _rwRepo.UpdateData(x => x.Guid == artboardElementUm.Guid,
             x =>
             {
-                x.ArtboardGuid = artboardElementUm.ArtboardGuid;
-                x.ArtboardToolboxElementGuid = artboardElementUm.ArtboardToolboxElementGuid;
                 x.CustomSerializedObject = artboardElementUm.CustomSerializedObject;
-                x.ElementPropertiesHash = artboardElementUm.ElementPropertiesHash;
+                x.ElementPropertiesHash = GetElementPropertiesHash(artboardElementUm);
                 x.Height = artboardElementUm.Height;
                 x.Width = artboardElementUm.Width;
                 x.LocationX = artboardElementUm.LocationX;
@@ -39,5 +37,10 @@ class ArtbaordElementUpdateService : IArtbaordElementUpdateService
             x => x.CreatedBy.Language);
 
         return new ArtboardElementVm(result.FirstOrDefault(), currentUser);
+    }
+
+    private string GetElementPropertiesHash(ArtboardElementUm artboardElementUm)
+    {
+        return String.Empty;
     }
 }
