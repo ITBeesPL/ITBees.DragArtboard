@@ -1,5 +1,6 @@
 ﻿using ITBees.DragArtboard.Interfaces;
 using ITBees.DragArtboard.Interfaces.Models;
+using ITBees.Interfaces.Repository;
 using ITBees.RestfulApiControllers;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +20,11 @@ public class ArtboardsController : RestfulControllerBase<ArtboardsController>
 
     [HttpGet]
     [Produces(typeof(List<ArtboardVm>))]
-    public IActionResult Get(Guid ownerGuid, int take = 50, int skip = 0)
+    public IActionResult Get(int? page, int? pageSize, string? sortColumn, SortOrder? sortOrder)
     {
         try
         {
-            var result = _artboardsService.GetAllActive(ownerGuid, take, skip);
+            var result = _artboardsService.GetAllActive(page, pageSize, sortColumn, sortOrder);
             return Ok(result);
         }
         catch (Exception e)

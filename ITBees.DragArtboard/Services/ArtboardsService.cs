@@ -10,32 +10,51 @@ public class ArtboardsService : IArtboardsService
 {
     private readonly IDragArtboardUserManager _artboardUserManager;
     private readonly IReadOnlyRepository<Artboard> _artboardRoRepository;
+    private readonly IDragArtboardUserManager _dragArtboardUserManager;
 
-    public ArtboardsService(IDragArtboardUserManager artboardUserManager, IReadOnlyRepository<Artboard> artboardRoRepository)
+    public ArtboardsService(IDragArtboardUserManager artboardUserManager,
+        IReadOnlyRepository<Artboard> artboardRoRepository,
+        IDragArtboardUserManager dragArtboardUserManager)
     {
         _artboardUserManager = artboardUserManager;
         _artboardRoRepository = artboardRoRepository;
+        _dragArtboardUserManager = dragArtboardUserManager;
     }
 
-    public List<ArtboardVm> GetAllActive(Guid artboardOwnerGuid, int take, int skip)
+    public PaginatedResult<ArtboardVm> GetAllActive(int? page, int? pageSize, string? sortColumn, SortOrder? sortOrder)
     {
-        if (_artboardUserManager.TryCanIDoForCompany(TypeOfOperation.Ro, artboardOwnerGuid) == false)
+        var currentUser = _artboardUserManager.GetCurrentUser();
+        var lastUsedCompanyGuid = currentUser.LastUsedCompanyGuid;
+        if (_artboardUserManager.TryCanIDoForCompany(TypeOfOperation.Ro, lastUsedCompanyGuid) == false)
         {
             throw new AccessViolationException($"You don't have access to owner of this");
         }
 
-        var result = _artboardRoRepository.GetDataQueryable(x => x.ArtboardOwnerGuid == artboardOwnerGuid, x => x.CreatedBy, x => x.CreatedBy.Language)
-               .Skip(skip)
-               .Take(take)
-               .Select(x => new ArtboardVm(x, null))
-               .ToList();
-        return result;
+        if (currentUser.UserRoles.Contains("PlatformOperator"))
+        {
+            var result = _artboardRoRepository.GetDataPaginated(x => true,
+                    new SortOptions(page, pageSize, sortColumn, sortOrder),
+                    x => x.CreatedBy, x => x.CreatedBy.Language, x => x.Company)
+                .MapTo(x => new ArtboardVm(x));
+
+            return result;
+        }
+        else
+        {
+            var result = _artboardRoRepository.GetDataPaginated(x => x.CompanyGuid == lastUsedCompanyGuid,
+                    new SortOptions(page, pageSize, sortColumn, sortOrder),
+                    x => x.CreatedBy, x => x.CreatedBy.Language, x => x.Company)
+                .MapTo(x => new ArtboardVm(x));
+
+            return result;
+        }
     }
 
     public ArtboardVm Get(Guid guid)
     {
+
         var result = _artboardRoRepository
-            .GetDataQueryable(x => x.Guid == guid, x => x.CreatedBy, x => x.CreatedBy.Language)
+            .GetDataQueryable(x => x.Guid == guid, x => x.CreatedBy, x => x.CreatedBy.Language, x => x.Company)
             .Select(x => new ArtboardVm(x, null))
             .FirstOrDefault();
 
@@ -48,7 +67,7 @@ public class ArtboardsService : IArtboardsService
         {
             throw new AccessViolationException($"You don't have access to owner of this");
         }
-        
+
         return result;
     }
 }

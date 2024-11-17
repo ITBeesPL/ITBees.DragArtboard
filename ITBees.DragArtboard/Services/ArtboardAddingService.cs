@@ -10,17 +10,26 @@ public class ArtboardAddingService : IArtboardAddingService
 {
     private readonly IDragArtboardUserManager _dragArtboardUserManager;
     private readonly IWriteOnlyRepository<Artboard> _artboardWoRepository;
+    private readonly IDragArtboardUserManager _artboardUserManager;
 
-    public ArtboardAddingService(IDragArtboardUserManager dragArtboardUserManager, 
-        IWriteOnlyRepository<Artboard> artboardWoRepository)
+    public ArtboardAddingService(IDragArtboardUserManager dragArtboardUserManager,
+        IWriteOnlyRepository<Artboard> artboardWoRepository, IDragArtboardUserManager artboardUserManager)
     {
         _dragArtboardUserManager = dragArtboardUserManager;
         _artboardWoRepository = artboardWoRepository;
+        _artboardUserManager = artboardUserManager;
     }
 
     public ArtboardVm CreateNew(ArtboardIm artboardIm)
     {
-        if (_dragArtboardUserManager.TryCanIDoForCompany(TypeOfOperation.Rw, artboardIm.ArtboardOwnerGuid) == false)
+        var currentUser = _artboardUserManager.GetCurrentUser();
+        if (artboardIm.ArtboardOwnerGuid == null ||
+            artboardIm.ArtboardOwnerGuid == new Guid("00000000-0000-0000-0000-000000000000"))
+        {
+            artboardIm.ArtboardOwnerGuid = currentUser.Guid;
+        }
+
+        if (currentUser.UserRoles.Contains("PlatformOperator") == false && (_dragArtboardUserManager.TryCanIDoForCompany(TypeOfOperation.Rw, artboardIm.ArtboardOwnerGuid.Value) == false))
         {
             throw new UnauthorizedAccessException(
                 $"You are not allowed to create new artbord for this owner : {artboardIm.ArtboardOwnerGuid}");
@@ -29,9 +38,9 @@ public class ArtboardAddingService : IArtboardAddingService
         var currentUserGuid = _dragArtboardUserManager.GetCurrentUser();
         var result = _artboardWoRepository.InsertData(new Artboard()
         {
-            ArtboardOwnerGuid = artboardIm.ArtboardOwnerGuid,
+            ArtboardOwnerGuid = artboardIm.ArtboardOwnerGuid.Value,
             ArtboardName = artboardIm.ArtboardName,
-            ArtboardType = artboardIm.ArtboardType,
+            ArtboardType = artboardIm.ArtboardType ?? 0,
             BackgroundImagePositionX = artboardIm.BackgroundImagePositionX,
             BackgroundImagePositionY = artboardIm.BackgroundImagePositionY,
             BackgroundImageUrl = artboardIm.BackgroundImageUrl,
@@ -43,7 +52,9 @@ public class ArtboardAddingService : IArtboardAddingService
             IsActive = artboardIm.IsActive,
             MeshEnabled = artboardIm.MeshEnabled,
             ShowToolbox = artboardIm.ShowToolbox,
-            Zoom = artboardIm.Zoom
+            Zoom = artboardIm.Zoom,
+            CompanyGuid = artboardIm.CompanyGuid ?? currentUser.LastUsedCompanyGuid,
+            BuildingGuid = artboardIm.BuildingGuid
         });
 
         return new ArtboardVm(result, currentUserGuid);

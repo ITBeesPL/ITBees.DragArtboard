@@ -1,4 +1,6 @@
-﻿using ITBees.Models.Users;
+﻿using ITBees.Models.Buildings;
+using ITBees.Models.Companies;
+using ITBees.Models.Users;
 
 namespace ITBees.DragArtboard.Models;
 
@@ -21,4 +23,8 @@ public class Artboard
     public bool IsActive { get; set; }
     public string? ArtboardName { get; set; }
     public int ArtboardType { get; set; }
+    public Company Company { get; set; }
+    public Guid CompanyGuid { get; set; }
+    public Building Building { get; set; }
+    public Guid? BuildingGuid { get; set; }
 }

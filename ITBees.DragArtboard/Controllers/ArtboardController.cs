@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ITBees.DragArtboard.Controllers;
 
-//[Authorize]todo security
+[Authorize]
 public class ArtboardController : RestfulControllerBase<ArtboardController>
 {
     private readonly IArtboardsService _artboardsService;
