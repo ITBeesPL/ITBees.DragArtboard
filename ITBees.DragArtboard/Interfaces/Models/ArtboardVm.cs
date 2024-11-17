@@ -31,7 +31,6 @@ public class ArtboardVm
         BackgroundImageZoom = x.BackgroundImageZoom;
         ControlButtonsVisible = x.ControlButtonsVisible;
         Created = x.Created;
-        Guid = x.CreatedByGuid;
         DragEnabled = x.DragEnabled;
         IsActive = x.IsActive;
         MeshEnabled = x.MeshEnabled;
