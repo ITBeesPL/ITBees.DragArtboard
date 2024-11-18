@@ -28,6 +28,6 @@ public class Dependencies : IFasDependencyRegistration
         services.AddScoped<IArtboardToolboxElementsService, ArtboardToolboxElementsService>();
         services.AddScoped<IArtboardUpdatingService, ArtboardUpdatingService>();
         services.AddScoped<IArtbaordToolboxElementUpdateService, ArtbaordToolboxElementUpdateService>();
-
+        services.AddScoped<IArtboardPostionService, ArtboardPostionService>();
     }
 }
