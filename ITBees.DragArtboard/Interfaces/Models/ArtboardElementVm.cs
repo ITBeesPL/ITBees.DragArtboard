@@ -11,6 +11,7 @@ public class ArtboardElementVm
     }
     public ArtboardElementVm(ArtboardElement x, CurrentUser currentUser = null)
     {
+        this.Guid = x.Guid;
         this.ArtboardToolboxElement = new ArtboardToolboxElementVm(x.ArtboardToolboxElement, currentUser);
         this.ArtboardGuid = x.ArtboardGuid;
         this.ArtboardToolboxElementGuid = x.ArtboardToolboxElementGuid;
