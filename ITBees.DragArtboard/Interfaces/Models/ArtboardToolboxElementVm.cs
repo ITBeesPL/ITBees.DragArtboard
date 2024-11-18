@@ -31,7 +31,7 @@ public class ArtboardToolboxElementVm
         this.ImageUrl = x.ImageUrl;
         this.TooltipText = x.TooltipText;
         this.IsEnabled = x.IsEnabled;
-        this.CreatedBy = x.CreatedBy.DisplayName;
+        this.CreatedBy = x.CreatedBy == null ? "" : x.CreatedBy.DisplayName;
         this.CreatedDate = x.CreatedDate;
     }
 

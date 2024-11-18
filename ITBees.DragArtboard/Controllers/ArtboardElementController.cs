@@ -6,7 +6,6 @@ using Microsoft.Extensions.Logging;
 
 namespace ITBees.DragArtboard.Controllers;
 
-//todo security
 public class ArtboardElementController : RestfulControllerBase<ArtboardElementController>
 {
     private readonly IArtbaordElementUpdateService _artbaordElementUpdateService;

@@ -8,10 +8,10 @@ public class ArtboardIm
     public bool ShowToolbox { get; set; }
     public bool ControlButtonsVisible { get; set; }
     public string? BackgroundImageUrl { get; set; }
-    public int BackgroundImageZoom { get; set; }
-    public int BackgroundImagePositionX { get; set; }
-    public int BackgroundImagePositionY { get; set; }
-    public int Zoom { get; set; }
+    public decimal BackgroundImageZoom { get; set; }
+    public string BackgroundImagePositionX { get; set; }
+    public string BackgroundImagePositionY { get; set; }
+    public decimal Zoom { get; set; }
     public bool IsActive { get; set; }
     public string? ArtboardName { get; set; }
     public int? ArtboardType { get; set; }
