@@ -21,9 +21,9 @@ public class ArtboardPostionService : IArtboardPostionService
     }
     public ArtboardVm UpdatePosition(ArtboardPositionUm artboardPositionUm)
     {
-        if (_artboardUserManager.GetCurrentUser().UserRoles.Contains("PlatformOperator") == false ||
+        if (_artboardUserManager.GetCurrentUser().UserRoles.Contains("PlatformOperator") == false &&
             _artboardUserManager.TryCanIDoForCompany(TypeOfOperation.Rw,
-                _artboardUserManager.GetCurrentUser().LastUsedCompanyGuid))
+                _artboardUserManager.GetCurrentUser().LastUsedCompanyGuid) == false)
         {
             throw new FasApiErrorException(new FasApiErrorVm("You don't have write access to this company", 403, ""));
         }
