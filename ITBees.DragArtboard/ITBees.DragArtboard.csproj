@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="ITBees.Fas.Setup" Version="8.0.7" />
     <PackageReference Include="ITBees.RestfulApiControllers" Version="8.0.21" />
-    <PackageReference Include="ITBees.Translations" Version="8.0.80" />
+    <PackageReference Include="ITBees.Translations" Version="8.0.81" />
   </ItemGroup>
 
   <ItemGroup>
