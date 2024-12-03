@@ -30,7 +30,6 @@ class ArtboardUpdatingService : IArtboardUpdatingService
             x.ControlButtonsVisible = artboardUm.ControlButtonsVisible;
             x.IsActive = artboardUm.IsActive;
             x.MeshEnabled  = artboardUm.MeshEnabled;
-            x.Zoom = artboardUm.Zoom;
             x.ShowToolbox = artboardUm.ShowToolbox;
         }, x => x.CreatedBy, x => x.CreatedBy.Language);
         if (result.Any())

@@ -35,7 +35,6 @@ public class ArtboardVm
         IsActive = x.IsActive;
         MeshEnabled = x.MeshEnabled;
         ShowToolbox = x.ShowToolbox;
-        Zoom = x.Zoom;
     }
 
     public Guid Guid { get; set; }
@@ -50,7 +49,6 @@ public class ArtboardVm
     public decimal BackgroundImageZoom { get; set; }
     public string BackgroundImagePositionX { get; set; }
     public string BackgroundImagePositionY { get; set; }
-    public decimal Zoom { get; set; }
     public bool IsActive { get; set; }
     public string? ArtboardName { get; set; }
     public int ArtboardType { get; set; }

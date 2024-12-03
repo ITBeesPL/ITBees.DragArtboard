@@ -33,8 +33,7 @@ public class ArtboardPostionService : IArtboardPostionService
             {
                 x.BackgroundImagePositionX = artboardPositionUm.BackgroundImagePositionX;
                 x.BackgroundImagePositionY = artboardPositionUm.BackgroundImagePositionY;
-                x.Zoom = artboardPositionUm.Zoom;
-                x.BackgroundImageZoom = artboardPositionUm.Zoom;
+                x.BackgroundImageZoom = artboardPositionUm.BackgroundImageZoom;
             }).FirstOrDefault();
 
         return new ArtboardVm(result);
