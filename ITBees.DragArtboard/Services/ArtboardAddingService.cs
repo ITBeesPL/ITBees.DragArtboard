@@ -54,7 +54,12 @@ public class ArtboardAddingService : IArtboardAddingService
             ShowToolbox = artboardIm.ShowToolbox,
             Zoom = artboardIm.Zoom,
             CompanyGuid = artboardIm.CompanyGuid ?? currentUser.LastUsedCompanyGuid,
-            BuildingGuid = artboardIm.BuildingGuid
+            BuildingGuid = artboardIm.BuildingGuid,
+            ViewBoxHeight = artboardIm.ViewBoxHeight,
+            ViewBoxWidth = artboardIm.ViewBoxWidth,
+            ViewBoxX = artboardIm.ViewBoxX,
+            ViewBoxY = artboardIm.ViewBoxY,
+            ViewBoxData = artboardIm.ViewBoxData
         });
 
         return new ArtboardVm(result, currentUserGuid);

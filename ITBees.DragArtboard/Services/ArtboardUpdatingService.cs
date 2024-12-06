@@ -32,6 +32,11 @@ class ArtboardUpdatingService : IArtboardUpdatingService
             x.MeshEnabled  = artboardUm.MeshEnabled;
             x.Zoom = artboardUm.Zoom;
             x.ShowToolbox = artboardUm.ShowToolbox;
+            x.ViewBoxX = artboardUm.ViewBoxX;
+            x.ViewBoxY = artboardUm.ViewBoxY;
+            x.ViewBoxWidth = artboardUm.ViewBoxWidth;
+            x.ViewBoxHeight = artboardUm.ViewBoxHeight;
+            x.ViewBoxData = artboardUm.ViewBoxData;
         }, x => x.CreatedBy, x => x.CreatedBy.Language);
         if (result.Any())
         {

@@ -36,7 +36,20 @@ public class ArtboardVm
         MeshEnabled = x.MeshEnabled;
         ShowToolbox = x.ShowToolbox;
         Zoom = x.Zoom;
+        ViewBoxData = x.ViewBoxData;
+        ViewBoxX = x.ViewBoxX;
+        ViewBoxY = x.ViewBoxY;
+        ViewBoxWidth = x.ViewBoxWidth;
+        ViewBoxHeight = x.ViewBoxHeight;
     }
+
+    public string? ViewBoxHeight { get; set; }
+
+    public string? ViewBoxWidth { get; set; }
+
+    public string? ViewBoxY { get; set; }
+
+    public string? ViewBoxX { get; set; }
 
     public Guid Guid { get; set; }
     public string CreatedBy { get; set; }
@@ -50,6 +63,7 @@ public class ArtboardVm
     public decimal BackgroundImageZoom { get; set; }
     public string BackgroundImagePositionX { get; set; }
     public string BackgroundImagePositionY { get; set; }
+    public string? ViewBoxData { get; set; }
     public decimal Zoom { get; set; }
     public bool IsActive { get; set; }
     public string? ArtboardName { get; set; }
