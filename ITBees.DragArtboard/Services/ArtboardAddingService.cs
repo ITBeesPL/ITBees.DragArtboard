@@ -52,7 +52,6 @@ public class ArtboardAddingService : IArtboardAddingService
             IsActive = artboardIm.IsActive,
             MeshEnabled = artboardIm.MeshEnabled,
             ShowToolbox = artboardIm.ShowToolbox,
-            Zoom = artboardIm.Zoom,
             CompanyGuid = artboardIm.CompanyGuid ?? currentUser.LastUsedCompanyGuid,
             BuildingGuid = artboardIm.BuildingGuid,
             ViewBoxHeight = artboardIm.ViewBoxHeight,

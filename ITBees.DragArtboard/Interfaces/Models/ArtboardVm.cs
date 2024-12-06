@@ -35,7 +35,6 @@ public class ArtboardVm
         IsActive = x.IsActive;
         MeshEnabled = x.MeshEnabled;
         ShowToolbox = x.ShowToolbox;
-        Zoom = x.Zoom;
         ViewBoxData = x.ViewBoxData;
         ViewBoxX = x.ViewBoxX;
         ViewBoxY = x.ViewBoxY;

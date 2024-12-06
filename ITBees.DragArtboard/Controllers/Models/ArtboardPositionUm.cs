@@ -6,5 +6,4 @@ public class ArtboardPositionUm
     public decimal BackgroundImageZoom { get; set; }
     public string BackgroundImagePositionX { get; set; }
     public string BackgroundImagePositionY { get; set; }
-    public decimal Zoom { get; set; }
 }
