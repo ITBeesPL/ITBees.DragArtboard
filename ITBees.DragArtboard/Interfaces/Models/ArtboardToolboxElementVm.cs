@@ -13,7 +13,7 @@ public class ArtboardToolboxElementVm
     {
         if (x.CreatedBy == null)
         {
-            this.DisplayName = currentUser.DisplayName;
+            this.DisplayName = currentUser?.DisplayName;
         }
         else
         {
