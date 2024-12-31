@@ -19,7 +19,7 @@ public class ArtboardsController : RestfulControllerBase<ArtboardsController>
     }
 
     [HttpGet]
-    [Produces(typeof(List<ArtboardVm>))]
+    [Produces(typeof(PaginatedResult<ArtboardVm>))]
     public IActionResult Get(int? page, int? pageSize, string? sortColumn, SortOrder? sortOrder)
     {
         try
