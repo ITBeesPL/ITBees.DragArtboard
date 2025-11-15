@@ -25,7 +25,7 @@ public class Artboard
     public int ArtboardType { get; set; }
     public Company Company { get; set; }
     public Guid CompanyGuid { get; set; }
-    public Building Building { get; set; }
+    public Building? Building { get; set; }
     public Guid? BuildingGuid { get; set; }
     public string? ViewBoxX { get; set; }
     public string? ViewBoxY { get; set; }
